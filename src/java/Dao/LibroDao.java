@@ -52,17 +52,17 @@ public class LibroDao {
     
     public int getLastId(){
         Connection conn = Dao.getConnection();
+        int res = -1;
         try{
             String sql = "select max(id) from libro";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            res = rs.getInt(1);
             conn.close();
-            
-            return rs.getInt(1);
             
         }catch(SQLException sqlEx){
             System.out.println(sqlEx.getMessage());
-            return -1;
         }
+        return res;
     }
 }

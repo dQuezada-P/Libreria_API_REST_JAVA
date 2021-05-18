@@ -1,9 +1,9 @@
 {
-  "isbn":12345,
-  "titulo":"Test",
-  "editorial":"Test",
+  "isbn":12349,
+  "titulo":"Test2",
+  "editorial":"Test2",
   "anno":"2020",
-  "autor1":"Test",
+  "autor1":"Test2",
   "autor2":"",
-  "precio":22000
+  "precio":15000
 }

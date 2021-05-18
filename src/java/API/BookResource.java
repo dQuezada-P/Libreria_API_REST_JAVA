@@ -45,8 +45,7 @@ public class BookResource {
         LibroDao dao = new LibroDao();
         String res = dao.create(libro);
         if (!res.isEmpty()) return Response.notModified("No se pudo agregar el libro. SQLException: "+res).build();
-        String json = "\"Added\":\"yes\",\n"
-                + "\"id\":\""+ dao.getLastId() +"\"";
+        String json = "\"id\":\""+ dao.getLastId() +"\"";
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
      
     }
