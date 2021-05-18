@@ -67,6 +67,22 @@ public class BookResource {
              return Response.status(Response.Status.SEE_OTHER).entity("Error: " + ex.toString()).build();
         }
     }
-
+    
+    @DELETE
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteBook(@PathParam("id") int id){
+        try{
+            LibroDao dao = new LibroDao();
+            int resultado = dao.deleteBook(id);
+            System.out.println(resultado);
+            if(resultado == 0)return Response.status(Response.Status.NOT_FOUND).entity("El libro a eliminar no existe").build();
+            String json = "Libro con ID: " + id +" Eliminado";
+            return Response.ok(json, MediaType.APPLICATION_JSON).build(); 
+        }catch(Exception ex){
+            return Response.status(Response.Status.SEE_OTHER).entity("Error: " + ex.toString()).build();
+        }
+    }
     
 }

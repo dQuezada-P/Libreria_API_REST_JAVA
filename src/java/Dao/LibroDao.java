@@ -92,6 +92,24 @@ public class LibroDao {
             return null;
         }
     }
+    
+    public int deleteBook(int id) throws SQLException{
+        
+        Connection conn = Dao.getConnection();
+        String sql = "delete from libro where id = ?";
+        int res = 0;
+        try{
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            res = ps.executeUpdate();
+            conn.close();
+            return res;
+        }catch(SQLException sqlEx){
+            return res;
+        }
+        
+        
+    }
 }
 
 
