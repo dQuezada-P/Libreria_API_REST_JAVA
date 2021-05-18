@@ -1,0 +1,9 @@
+{
+  "isbn":12345,
+  "titulo":"Test",
+  "editorial":"Test",
+  "anno":"2020",
+  "autor1":"Test",
+  "autor2":"",
+  "precio":22000
+}
