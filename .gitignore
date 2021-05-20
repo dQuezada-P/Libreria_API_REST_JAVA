@@ -1,0 +1,6 @@
+# DATA BASE
+./src/db
+build/web/WEB-INF/classes/Dao/Dao.class
+nbproject/private/private.properties
+nbproject/project.properties
+src/java/Dao/Dao.java
