@@ -43,6 +43,7 @@ public class libros extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
+        
         try {
             if (action == null) listarLibros(request, response);
             switch (action) {
@@ -56,6 +57,7 @@ public class libros extends HttpServlet {
     
     private void listarLibros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/listarLibros.jsp");
+        System.out.println(request.getParameter("id_libro"));
         dispatcher.forward(request, response);
     }
     
@@ -76,7 +78,6 @@ public class libros extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        System.out.println(action);
         try {
             if (action == null) listarLibros(request, response);
             switch (action) {
@@ -87,6 +88,7 @@ public class libros extends HttpServlet {
         } catch (Exception e) {
         }
     }
+    
 
     /**
      * Returns a short description of the servlet.
