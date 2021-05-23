@@ -42,13 +42,12 @@ public class libros extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Servlet Inicializado....!");
         String action = request.getParameter("action");
-        System.out.println(action);
         try {
             if (action == null) listarLibros(request, response);
             switch (action) {
-                case "agregar":
+                case "buscar":
+                    buscarLibro(request,response);
                     break;
             }
         } catch (Exception e) {
@@ -57,6 +56,11 @@ public class libros extends HttpServlet {
     
     private void listarLibros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/listarLibros.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void buscarLibro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/buscarLibro.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -71,7 +75,17 @@ public class libros extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String action = request.getParameter("action");
+        System.out.println(action);
+        try {
+            if (action == null) listarLibros(request, response);
+            switch (action) {
+                case "buscar":
+                    buscarLibro(request,response);
+                    break;
+            }
+        } catch (Exception e) {
+        }
     }
 
     /**
