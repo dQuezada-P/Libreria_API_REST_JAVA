@@ -57,7 +57,6 @@ public class libros extends HttpServlet {
     
     private void listarLibros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/listarLibros.jsp");
-        System.out.println(request.getParameter("id_libro"));
         dispatcher.forward(request, response);
     }
     
