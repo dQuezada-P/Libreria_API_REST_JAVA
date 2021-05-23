@@ -1,5 +1,11 @@
 import {deleteBook} from './apiCrud.js'
 
+const tableDivElement = document.getElementById('table')
+const jsonDivElement = document.getElementById('json')
+
+const tableElement = tableDivElement.querySelector('.table')
+const jsonElement = jsonDivElement.querySelector('.json')
+
 const inputIdElement = document.getElementById('id')
 
 const buttonSearchElement = document.getElementById('buscar')
@@ -11,6 +17,7 @@ buttonSearchElement.addEventListener('click', e => {
         return
     }
     alertElement.setAttribute('hidden','True')
+    cleanSearch()
     searchBook()
 })
 
@@ -38,13 +45,13 @@ function searchBook(){
     }
 }
 
+function cleanSearch() {
+    jsonElement.textContent = null
+    jsonDivElement.setAttribute('hidden','True')
+    tableDivElement.setAttribute('hidden','True')
+}
+
 function revealResult(request){
-    const tableDivElement = document.getElementById('table')
-    const jsonDivElement = document.getElementById('json')
-
-    const tableElement = tableDivElement.querySelector('.table')
-    const jsonElement = jsonDivElement.querySelector('.json')
-
     jsonElement.textContent = request.responseText
 
     const libro = JSON.parse(request.response)
@@ -62,6 +69,7 @@ function revealResult(request){
     buttonTrashElement.setAttribute('id',libro.id)
     buttonTrashElement.addEventListener('click', e => {
         deleteBook(e)
+        cleanSearch()
     })
 
     const trashIconElement = document.createElement('i')
@@ -78,6 +86,4 @@ function revealResult(request){
 
     tableDivElement.removeAttribute('hidden')
     jsonDivElement.removeAttribute('hidden')
-
-    console.log(libro)
 }
