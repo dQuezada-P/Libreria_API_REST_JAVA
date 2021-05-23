@@ -23,7 +23,7 @@
     width: 250px;
 }
 
-.ml250,.content,.navbar {
+.ml250,.content {
     margin-left: 250px;
 }
 
@@ -44,5 +44,31 @@
 .alert {
     display: flex;
     justify-content: space-between;
+}
+
+.main-container {
+    height: calc(100vh - 57px);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bg-container {
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+
+    height: calc(100vh - 57px);
+    width: 100%;
+    filter: brightness(0.4);
+
+    top: 0;
+}
+
+.main-content {
+    
+    color: white;
+    text-align: center;
 }
 
