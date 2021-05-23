@@ -10,6 +10,7 @@ import Dao.LibroDao;
 import com.google.gson.Gson;
 import com.sun.management.jmx.ServiceName;
 import java.sql.SQLException;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response;
@@ -49,7 +50,15 @@ public class BookResource {
         if (!res.isEmpty()) return Response.notModified("No se pudo agregar el libro. SQLException: "+res).build();
         String json = "\"id\":\""+ dao.getLastId() +"\"";
         return Response.ok(json, MediaType.APPLICATION_JSON).build();
-     
+    }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateBook(Libro libro) throws SQLException{
+        int updateRs = new LibroDao().update(libro);
+        if(updateRs == 0) return Response.notModified("No se pudo modificar el libro").build();
+        return Response.ok(getBook(libro.getId()).getEntity().toString(),MediaType.APPLICATION_JSON).build();
     }
     
     @GET
@@ -67,6 +76,21 @@ public class BookResource {
              return Response.status(Response.Status.SEE_OTHER).entity("Error: " + ex.toString()).build();
         }
     }
+    
+    @GET
+    @Path("all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getBooks(){
+        try{
+            List<Libro> libros = new LibroDao().getBooks();
+            String json = new Gson().toJson(libros);
+            return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        }catch(Exception ex){
+             return Response.status(Response.Status.SEE_OTHER).entity("Error: " + ex.toString()).build();
+        }
+    }
+    
+    
     
     @DELETE
     @Path("{id}")
