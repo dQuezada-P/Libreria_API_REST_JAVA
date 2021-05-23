@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="resources/css/style.css">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar ml250 navbar-light bg-light">
             <div class="container-fluid">
                 
             </div>

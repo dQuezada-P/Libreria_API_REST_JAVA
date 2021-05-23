@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>VentaBook | API</title>
+        <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     </head>
@@ -18,13 +19,15 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="resources/img/venta-stock.jpg" alt="" width="100"  class="d-inline-block align-text-top">
-                    Bootstrap
                 </a>
             </div>
         </nav>
-        <div class="container">
-            <h1>Bienvenido a la web VentaBook</h1>
-            <a class="nav-link" href="libros">Libreria</a>
+        <div class="main-container">
+            <img src="resources/img/Libreria.jpg" class="bg-container" alt="">
+            <div class="container main-content">
+                <h1>Bienvenido a la web VentaBook</h1>
+                <a class="nav-link" href="libros">Libreria</a>
+            </div>
         </div>
     </body>
 </html>
