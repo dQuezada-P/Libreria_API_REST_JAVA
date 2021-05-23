@@ -34,9 +34,15 @@
 
 .fa-trash-alt {
     color: red;
+    user-select: none;
 }
 
 .btn-outline-danger:hover > .fa-trash-alt {
     color: white;
+}
+
+.alert {
+    display: flex;
+    justify-content: space-between;
 }
 

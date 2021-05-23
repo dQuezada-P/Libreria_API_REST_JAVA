@@ -102,7 +102,7 @@ public class BookResource {
             int resultado = dao.deleteBook(id);
             System.out.println(resultado);
             if(resultado == 0)return Response.status(Response.Status.NOT_FOUND).entity("El libro a eliminar no existe").build();
-            String json = "Libro con ID: " + id +" Eliminado";
+            String json = "{\"id\":"+id+"}";
             return Response.ok(json, MediaType.APPLICATION_JSON).build(); 
         }catch(Exception ex){
             return Response.status(Response.Status.SEE_OTHER).entity("Error: " + ex.toString()).build();
