@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+.navbar {
+    height: 57px ;
+}
+
+.logo {
+    height: 57px ;
+}
+
+.img {
+    height: 100%;
+}
+
+.main-sidebar {
+    position: fixed;
+    bottom: 0; 
+    float: none; 
+    left: 0; 
+    top: 0;
+    width: 250px;
+}
+
+.ml250,.content,.navbar {
+    margin-left: 250px;
+}
+
+.content {
+    padding: 0 20px;
+    height: 100%;
+}

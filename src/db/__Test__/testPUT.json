@@ -1,0 +1,10 @@
+{
+  "id":0,
+  "isbn":1,
+  "titulo":"PUT",
+  "editorial":"PUT",
+  "anno":null,
+  "autor1":null,
+  "autor2":null,
+  "precio":0
+}
