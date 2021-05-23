@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listar libros</title>
+        <title>Buscar libro</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
         
@@ -37,38 +37,26 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item active">Listar libros</li>
+                            <li class="breadcrumb-item active">Buscar libro</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h3>Lista de libros - JSON</h3>
+                    <h3>Buscar libro</h3>
                 </div>
                 <div class="card-body">
                     <!-- contenido -->
-                    <div class="json"></div>
-                </div>
-            </div>
-            <div class="card mt-3">
-                <div class="card-header">
-                    <h3>Lista de libros</h3>
-                </div>
-                <div class="card-body">
-                    <!-- contenido -->
-                    <table class="table table-striped table-hover">
-                        <tr>
-                            <td>Id</td>
-                            <td>Isbn</td>
-                            <td>Título</td>
-                            <td>Editorial</td>
-                            <td>Año</td>
-                            <td>Autor 1</td>
-                            <td>Autor 2</td>
-                            <td>Precio</td>
-                        </tr>
-                    </table>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="id">Ingrese id del libro</label>
+                            <input id="id" type="text" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
