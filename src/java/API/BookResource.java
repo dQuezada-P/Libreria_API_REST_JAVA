@@ -45,6 +45,7 @@ public class BookResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addBook(Libro libro) throws SQLException{
+        //if(){}
         LibroDao dao = new LibroDao();
         String res = dao.create(libro);
         if (!res.isEmpty()) return Response.notModified("No se pudo agregar el libro. SQLException: "+res).build();
