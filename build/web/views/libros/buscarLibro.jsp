@@ -29,7 +29,7 @@
             </a>
             <a class="btn btn-outline-light m-2" href="libros">Listar libros</a>
             <a class="btn btn-outline-light m-2" href="libros?action=buscar">Buscar libro</a>
-            <a class="btn btn-outline-light m-2" href="#">Agregar libro</a>
+            <a class="btn btn-outline-light m-2" href="libros?action=agregar">Agregar libro</a>
         </nav>
         <div class="content pt-3" >
             <div class="content-header">

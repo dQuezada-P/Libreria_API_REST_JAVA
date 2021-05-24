@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 22-05-2021, 17:18:11
-    Author     : Diego
+    Document   : agregarLibro
+    Created on : 23-05-2021, 20:26:57
+    Author     : RAFA
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Buscar libro</title>
+        <title>Agregar libro</title>
         <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -39,7 +39,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item active">Buscar libro</li>
+                            <li class="breadcrumb-item active">Agregar libro</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -47,19 +47,50 @@
             <div class="alert alert-danger" hidden role="alert" >
                 <div class="alert-content"></div>
             </div>
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header">
-                    <h3>Buscar libro</h3>
+                    <h3>Agregar libro</h3>
                 </div>
                 <div class="card-body">
                     <!-- contenido -->
                     <form>
+                        
                         <div class="mb-3">
-                            <label for="id">Ingrese id del libro</label>
-                            <input id="id" type="text" class="form-control">
+                            <label for="isbn">Isbn</label>
+                            <input id="isbn" type="text" class="form-control">
                         </div>
                         
-                        <button id="buscar" type="button" class="btn btn-primary">Buscar</button>
+                        <div class="mb-3">
+                            <label for="titulo">Título</label>
+                            <input id="titulo" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="editorial">Editorial</label>
+                            <input id="editorial" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="anno">Año</label>
+                            <input id="anno" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="autor1">Autor 1</label>
+                            <input id="autor1" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="autor2">Autor 2</label>
+                            <input id="autor2" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="precio">Precio</label>
+                            <input id="precio" type="text" class="form-control">
+                        </div>
+                                                                 
+                        <button id="agregar" type="button" class="btn btn-primary">Agregar</button>
                     </form>
                     
                 </div>
