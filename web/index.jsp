@@ -28,7 +28,7 @@
             <img src="resources/img/Libreria.jpg" class="bg-container" alt="">
             <div class="container main-content">
                 <h1 class="letra">Bienvenido a la web VentaStock</h1>
-                <a class="btn btn-outline-light btn-libreria" href="libros">Acceder a Libreria</a>
+                <a class="btn btn-outline-light btn-libreria" href="libros">Acceder a Librería</a>
             </div>
         </div>
     </body>
