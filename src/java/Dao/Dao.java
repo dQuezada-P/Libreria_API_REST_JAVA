@@ -26,7 +26,8 @@ public class Dao {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
             }
-        connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/Lampi/Documents/GitHub/Libreria_API_REST_JAVA/src/db/libreria.db");
+        //connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/Lampi/Documents/GitHub/Libreria_API_REST_JAVA/src/db/libreria.db");
+        connection = DriverManager.getConnection("jdbc:sqlite:D:/Escritorio/Barra de Tareas/Projects/Java Api Rest/Libreria_API_REST_JAVA/src/db/libreria.db");
         }
         catch (SQLException ex)
         {

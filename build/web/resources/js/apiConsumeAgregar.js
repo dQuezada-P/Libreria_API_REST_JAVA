@@ -11,16 +11,16 @@ buttonAgregarElement.addEventListener('click', e => {
     const inputElements = e.target.parentElement.getElementsByClassName('form-control')
 
     const libroString =
-        `{"isbn":${inputElements['isbn'].value},
-    "titulo":${inputElements['titulo'].value},
-    "editorial":${inputElements['editorial'].value},
-    "anno":${inputElements['anno'].value},
-    "autor1":${inputElements['autor1'].value},
-    "autor2":${inputElements['autor2'].value},
-    "precio":${inputElements['precio'].value}                   
+        `{"isbn":${inputElements['isbn'].value ? `"${inputElements['isbn'].value}"` : null},
+    "titulo":${inputElements['titulo'].value ? `"${inputElements['titulo'].value}"` : null},
+    "editorial":${inputElements['editorial'].value ? `"${inputElements['editorial'].value}"` : null},
+    "anno":${inputElements['anno'].value ? `"${inputElements['anno'].value}"` : null},
+    "autor1":${inputElements['autor1'].value ? `"${inputElements['autor1'].value}"` : null},
+    "autor2":${inputElements['autor2'].value ? `"${inputElements['autor2'].value}"` : null},
+    "precio":${inputElements['precio'].value ? inputElements['precio'].value : null}                   
     }`
-
-    console.log(libroString)
+    
+    console.log(JSON.parse(libroString))
 
     addBook(e, libroString, alertElement)
 })
