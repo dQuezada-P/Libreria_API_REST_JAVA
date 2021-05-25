@@ -50,3 +50,17 @@ export function addBook(e, json, alertElement) {
         alertElement.removeAttribute('hidden')
     }
 }
+
+export function updateBook(libro){
+    
+    const request = new XMLHttpRequest();
+
+    request.open('PUT','http://localhost:8080/Libreria/webresources/book')
+    request.setRequestHeader('content-Type', 'application/json');
+    request.send(JSON.parse(libro))
+    request.onload = () => {
+        if (request.status == "200"){console.log('funcionanding')}
+        else{console.log('PETA')
+    }
+}
+}

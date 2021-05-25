@@ -91,7 +91,7 @@
                             <input id="precio" type="text" class="form-control" value="<%out.print(request.getAttribute("precio"));%>">
                         </div>
                                                                  
-                        <button id="agregar" type="button" class="btn btn-primary">Guardar</button>
+                        <button id="editar" type="button" class="btn btn-primary">Guardar</button>
                     </form>
                     
                 </div>
