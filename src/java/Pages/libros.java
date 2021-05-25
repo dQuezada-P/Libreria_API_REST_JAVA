@@ -5,21 +5,18 @@
  */
 package Pages;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
+import Class.Libro;
+import API.BookResource;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.util.Iterator;
-import javax.json.Json;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 
 
 /**
@@ -55,44 +52,71 @@ public class libros extends HttpServlet {
         
         try {
             if (action == null) listarLibros(request, response);
-            switch (action) {
-                case "buscar":
-                    buscarLibro(request,response);
-                    break;
-                case "agregar":
-                    agregarLibro(request,response);
-                    break;
-                case "editar":
-                    String id = request.getParameter("id_libro");
-                    if (id == null || id.isEmpty()) {
-                        response.sendRedirect(request.getContextPath() + "/libros");
+            else {
+                switch (action) {
+                    case "buscar":
+                        buscarLibro(request,response);
                         break;
-                    }
-                    
-                    editarLibro(request, response);
-                    break;
+                    case "agregar":
+                        agregarLibro(request,response);
+                        break;
+                    case "editar":
+                        String id = request.getParameter("id_libro");
+                        if (id == null || id.isEmpty()) {
+                            response.sendRedirect(request.getContextPath() + "/libros");
+                            break;
+                        }
+                        Map map = validarId(id);
+                        if (map!=null){
+                            request.setAttribute("id", map.get("id"));
+                            request.setAttribute("isbn", map.get("isbn"));
+                            request.setAttribute("titulo", map.get("titulo"));
+                            request.setAttribute("editorial", map.get("editorial"));
+                            request.setAttribute("anno", map.get("anno"));
+                            request.setAttribute("autor1", map.get("autor1"));
+                            request.setAttribute("autor2", map.get("autor2"));
+                            request.setAttribute("precio", map.get("precio"));
+                            editarLibro(request, response);
+                            break;
+                        }
+                        response.sendRedirect(request.getContextPath() + "/libros");
+                        
+                }
             }
         } catch (Exception e) {
-            System.out.println("error");
+            System.out.println(e.getMessage());
         }
     }
     
-    private void validarId(){
-        String urlstr="http://localhost:8080/JavaWebServiceServerCRUDRestful/restful/empleados/json/listarempleados";
+    private Map validarId(String id){
         try{
-            URL url = new  URL(urlstr);
-            InputStream is = url.openStream();
-            JsonReader rdr=Json.createReader(new InputStreamReader(is, "UTF-8"));
-            JsonArray results= rdr.readArray();
-            Iterator<?> iterator = results.iterator();
-            while(iterator.hasNext()){
-                JsonObject jsonObject = (JsonObject) iterator.next();
-                System.out.println("JSON-> El id es: "+jsonObject.get("id").toString().toUpperCase()+", el nombre es: "+jsonObject.get("nombre").toString().toUpperCase()+", el puesto es: "+jsonObject.get("puesto").toString().toUpperCase());
+            Map map = new HashMap();
+            Response rs = new BookResource().getBook(Integer.parseInt(id));
+            String result = (String) rs.getEntity();
+            boolean flag = true;
+            int posInit = 1;
+            int posCoin = 0;
+            while(posCoin != -1){
+                String key = "";
+                String value = "";
+                String temp;
+                posCoin = result.indexOf(",",posInit);
+                if(posCoin == -1) temp = result.substring(posInit,result.length()-1).replace("\"", "");
+                else temp = result.substring(posInit,posCoin).replace("\"", "");
+                String[] k_v = temp.split(":");
+                key = k_v[0];
+                value = k_v[1];
+                map.put(key, value);
+                
+                posInit = posCoin + 1;
             }
+            return map;
+            
         }catch (Exception e) {
-            e.getMessage();
-            e.printStackTrace();
+            System.out.println("error");
+            System.out.println(e.getMessage());
         }
+        return null;
     }
     
     private void listarLibros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

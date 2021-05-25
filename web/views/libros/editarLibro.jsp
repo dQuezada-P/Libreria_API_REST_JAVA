@@ -57,37 +57,37 @@
                         
                         <div class="mb-3">
                             <label for="isbn">Isbn</label>
-                            <input id="isbn" type="text" class="form-control">
+                            <input id="isbn" type="text" class="form-control" value="<%out.print(request.getAttribute("isbn"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="titulo">Título</label>
-                            <input id="titulo" type="text" class="form-control">
+                            <input id="titulo" type="text" class="form-control" value="<%out.print(request.getAttribute("titulo"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="editorial">Editorial</label>
-                            <input id="editorial" type="text" class="form-control">
+                            <input id="editorial" type="text" class="form-control" value="<%out.print(request.getAttribute("editorial"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="anno">Año</label>
-                            <input id="anno" type="text" class="form-control">
+                            <input id="anno" type="text" class="form-control" value="<%out.print(request.getAttribute("anno"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="autor1">Autor 1</label>
-                            <input id="autor1" type="text" class="form-control">
+                            <input id="autor1" type="text" class="form-control" value="<%out.print(request.getAttribute("autor1"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="autor2">Autor 2</label>
-                            <input id="autor2" type="text" class="form-control">
+                            <input id="autor2" type="text" class="form-control" value="<%out.print(request.getAttribute("autor2"));%>">
                         </div>
                         
                         <div class="mb-3">
                             <label for="precio">Precio</label>
-                            <input id="precio" type="text" class="form-control">
+                            <input id="precio" type="text" class="form-control" value="<%out.print(request.getAttribute("precio"));%>">
                         </div>
                                                                  
                         <button id="agregar" type="button" class="btn btn-primary">Guardar</button>
@@ -95,41 +95,7 @@
                     
                 </div>
             </div>
-            <div id="json" class="card mt-3" hidden>
-                <div class="card-header">
-                    <h3>Libro - JSON</h3>
-                </div>
-                <div class="card-body">
-                    <!-- contenido -->
-                    <div class="json"></div>
-                </div>
-            </div>
-            <div id="table" class="card mt-3" hidden>
-                <div class="card-header">
-                    <h3>Libro</h3>
-                </div>
-                <div class="card-body">
-                    <!-- contenido -->
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <td>Id</td>
-                                <td>Isbn</td>
-                                <td>Título</td>
-                                <td>Editorial</td>
-                                <td>Año</td>
-                                <td>Autor 1</td>
-                                <td>Autor 2</td>
-                                <td>Precio</td>
-                                <td>Acción</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            
         </div>
             
         </div>
