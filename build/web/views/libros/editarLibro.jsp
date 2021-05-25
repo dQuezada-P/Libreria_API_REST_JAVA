@@ -54,6 +54,7 @@
                 <div class="card-body">
                     <!-- contenido -->
                     <form>
+                        <input id="id" type="text" hidden value="<%out.print(request.getAttribute("id"));%>">
                         
                         <div class="mb-3">
                             <label for="isbn">Isbn</label>
