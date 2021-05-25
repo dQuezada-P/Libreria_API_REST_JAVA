@@ -46,17 +46,15 @@ function fillTable(request){
         }
         const column = document.createElement('td')
         
-        const buttonEditeElement = document.createElement('a')
-        buttonEditeElement.classList = 'btn btn-outline-primary'
-        buttonEditeElement.addEventListener('click', e => {
-            
-        })
+        const buttonEditElement = document.createElement('a')
+        buttonEditElement.classList = 'btn btn-outline-primary'
+        buttonEditElement.setAttribute('href',`libros?action=editar&id_libro=${libro.id}`)
 
         const editIconElement = document.createElement('i')
         editIconElement.classList = 'fas fa-pencil-alt fa-1x btn-icon'
 
-        buttonEditeElement.appendChild(editIconElement)
-        column.appendChild(buttonEditeElement)
+        buttonEditElement.appendChild(editIconElement)
+        column.appendChild(buttonEditElement)
 
         const buttonTrashElement = document.createElement('button')
         buttonTrashElement.classList = 'btn btn-outline-danger ml-2'

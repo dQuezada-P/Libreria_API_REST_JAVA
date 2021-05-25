@@ -135,5 +135,5 @@
         </div>
 
     </body>
-    <script src="resources/js/apiConsumeAgregar.js" type="module"></script>
+    <script src="resources/js/apiConsumeEditar.js" type="module"></script>
 </html>
