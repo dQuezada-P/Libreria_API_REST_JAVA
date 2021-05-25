@@ -93,26 +93,11 @@ public class libros extends HttpServlet {
             Map map = new HashMap();
             Response rs = new BookResource().getBook(Integer.parseInt(id));
             String result = (String) rs.getEntity();
-            /*boolean flag = true;
-            int posInit = 1;
-            int posCoin = 0;
-            while(posCoin != -1){
-                String key = "";
-                String value = "";
-                String temp;
-                posCoin = result.indexOf(",",posInit);
-                if(posCoin == -1) temp = result.substring(posInit,result.length()-1).replace("\"", "");
-                else temp = result.substring(posInit,posCoin).replace("\"", "");
-                String[] k_v = temp.split(":");
-                key = k_v[0];
-                value = k_v[1];
-                map.put(key, value);
-                
-                posInit = posCoin + 1;
-            }*/
             result = result.replace("\"", "").replace("{", "").replace("}", "");
-            String[] attributesBook = result.split(",");
-            for(String attribute : attributesBook){
+            System.out.println(result);
+            String[] bookAttributes = result.split(",");
+            for(String attribute : bookAttributes){
+                System.out.println(attribute);
                 String[] arrAttribute = attribute.split(":");
                 String key = arrAttribute[0];
                 String value = arrAttribute[1];
@@ -121,7 +106,6 @@ public class libros extends HttpServlet {
             return map;
             
         }catch (Exception e) {
-            System.out.println("error");
             System.out.println(e.getMessage());
         }
         return null;
