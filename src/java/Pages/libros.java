@@ -53,6 +53,9 @@ public class libros extends HttpServlet {
                 case "agregar":
                     agregarLibro(request,response);
                     break;
+                case "editar":
+                    editarLibro(request, response);
+                    break;
             }
         } catch (Exception e) {
         }
@@ -70,6 +73,11 @@ public class libros extends HttpServlet {
     
     private void agregarLibro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/agregarLibro.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void editarLibro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/editarLibro.jsp");
         dispatcher.forward(request, response);
     }
 

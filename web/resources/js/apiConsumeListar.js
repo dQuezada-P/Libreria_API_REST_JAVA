@@ -44,10 +44,22 @@ function fillTable(request){
             column.textContent = libro[prop]
             row.appendChild(column)
         }
+        const column = document.createElement('td')
         
+        const buttonEditeElement = document.createElement('a')
+        buttonEditeElement.classList = 'btn btn-outline-primary'
+        buttonEditeElement.addEventListener('click', e => {
+            
+        })
+
+        const editIconElement = document.createElement('i')
+        editIconElement.classList = 'fas fa-pencil-alt fa-1x btn-icon'
+
+        buttonEditeElement.appendChild(editIconElement)
+        column.appendChild(buttonEditeElement)
 
         const buttonTrashElement = document.createElement('button')
-        buttonTrashElement.classList = 'btn btn-outline-danger'
+        buttonTrashElement.classList = 'btn btn-outline-danger ml-2'
         buttonTrashElement.type = 'submit'
         buttonTrashElement.setAttribute('id',libro.id)
         buttonTrashElement.addEventListener('click', e => {
@@ -56,11 +68,9 @@ function fillTable(request){
         })
 
         const trashIconElement = document.createElement('i')
-        trashIconElement.classList = 'far fa-trash-alt fa-1x'
+        trashIconElement.classList = 'far fa-trash-alt fa-1x btn-icon'
 
-        buttonTrashElement.appendChild(trashIconElement)
-
-        const column = document.createElement('td')
+        buttonTrashElement.appendChild(trashIconElement)      
         column.appendChild(buttonTrashElement)
 
         row.appendChild(column)
