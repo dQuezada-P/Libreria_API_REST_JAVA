@@ -1,4 +1,4 @@
-import {deleteBook} from './apiCrud.js'
+import {deleteBook,getBooks} from './apiCrud.js'
 
 const pathName = window.location
 
@@ -7,32 +7,14 @@ const tableElement = document.querySelector('tbody');
 
 window.onload = e => requestJson(e)
 
-// function getAll(){
-//     const request = new XMLHttpRequest();
-
-//     request.open('GET','http://localhost:8080/Libreria/webresources/book/all');
-//     request.send();
-//     request.onload = () => {
-//         if (request.status == 200){
-//             fillTable(request)
-//         }
-//     }
-// }
-
 function requestJson(e) {
-    const request = new XMLHttpRequest();
-
-    request.open('GET','http://localhost:8080/Libreria/webresources/book/all');
-    request.send();
-    request.onload = () => {
-        if (request.status == 200){
-            if(e.type == 'load'){
-                fillTable(request) 
-                return
-            }
-            fillJson(request)
+    getBooks(request => {
+        if(e.type == 'load'){
+            fillTable(request) 
+            return
         }
-    }
+        fillJson(request)
+    })
 }
 
 function fillTable(request){

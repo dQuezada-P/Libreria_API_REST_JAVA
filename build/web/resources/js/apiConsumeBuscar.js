@@ -1,9 +1,9 @@
-import {deleteBook} from './apiCrud.js'
+import {deleteBook,getBookById} from './apiCrud.js'
 
 const tableDivElement = document.getElementById('table')
 const jsonDivElement = document.getElementById('json')
 
-const tableElement = tableDivElement.querySelector('.table')
+const tableElement = tableDivElement.querySelector('tbody')
 const jsonElement = jsonDivElement.querySelector('.json')
 
 const inputIdElement = document.getElementById('id')
@@ -18,7 +18,7 @@ buttonSearchElement.addEventListener('click', e => {
     }
     alertElement.setAttribute('hidden','True')
     cleanSearch()
-    searchBook()
+    getBookById(inputIdElement.value, request => revealResult(request))
 })
 
 const alertElement = document.querySelector('.alert')
@@ -32,39 +32,42 @@ function validateId(){
     return {'status':true, 'message':null}
 }
 
-function searchBook(){
-    const id = inputIdElement.value
-    const request = new XMLHttpRequest();
-
-    request.open('GET',`http://localhost:8080/Libreria/webresources/book/${id}`);
-    request.send();
-    request.onload = () => {
-        if (request.status == 200){
-            revealResult(request)
-        }
-    }
-}
 
 function cleanSearch() {
     jsonElement.textContent = null
     jsonDivElement.setAttribute('hidden','True')
     tableDivElement.setAttribute('hidden','True')
+    tableElement.innerHTML = ''
 }
 
 function revealResult(request){
+    cleanSearch()
     jsonElement.textContent = request.responseText
 
     const libro = JSON.parse(request.response)
 
     const row = document.createElement('tr')
+    
     for (let prop in libro) {
         const column = document.createElement('td')
         column.textContent = libro[prop]
         row.appendChild(column)
     }
 
+    const column = document.createElement('td')
+
+    const buttonEditElement = document.createElement('a')
+    buttonEditElement.classList = 'btn btn-outline-primary'
+    buttonEditElement.setAttribute('href',`libros?action=editar&id_libro=${libro.id}`)
+
+    const editIconElement = document.createElement('i')
+    editIconElement.classList = 'fas fa-pencil-alt fa-1x btn-icon'
+
+    buttonEditElement.appendChild(editIconElement)
+    column.appendChild(buttonEditElement)
+
     const buttonTrashElement = document.createElement('button')
-    buttonTrashElement.classList = 'btn btn-outline-danger'
+    buttonTrashElement.classList = 'btn btn-outline-danger ml-2'
     buttonTrashElement.type = 'submit'
     buttonTrashElement.setAttribute('id',libro.id)
     buttonTrashElement.addEventListener('click', e => {
@@ -73,11 +76,10 @@ function revealResult(request){
     })
 
     const trashIconElement = document.createElement('i')
-    trashIconElement.classList = 'far fa-trash-alt fa-1x'
+    trashIconElement.classList = 'far fa-trash-alt fa-1x '
 
     buttonTrashElement.appendChild(trashIconElement)
-
-    const column = document.createElement('td')
+    
     column.appendChild(buttonTrashElement)
 
     row.appendChild(column)

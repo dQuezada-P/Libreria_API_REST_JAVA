@@ -19,9 +19,7 @@ export function deleteBook(e) {
         } else {
             console.error(rs)
         }
-
     }
-
 }
 
 export function addBook(e, json, alertElement) {
@@ -52,15 +50,39 @@ export function addBook(e, json, alertElement) {
 }
 
 export function updateBook(libro){
-    
     const request = new XMLHttpRequest();
 
     request.open('PUT','http://localhost:8080/Libreria/webresources/book')
     request.setRequestHeader('content-Type', 'application/json');
-    request.send(JSON.parse(libro))
+    request.send(libro)
     request.onload = () => {
-        if (request.status == "200"){console.log('funcionanding')}
-        else{console.log('PETA')
+        if (request.status == "200") console.log(request.status) 
+        else console.log(request.status)
     }
 }
+
+export function getBookById(id, callback){
+    const request = new XMLHttpRequest();
+    request.open('GET',`http://localhost:8080/Libreria/webresources/book/${id}`);
+    request.send();
+    request.onload = () => {
+        if (request.status == 200){
+            console.log(request.status)
+            if(callback) callback(request)
+        }
+    }
+}
+
+
+export function getBooks(callback) {
+    const request = new XMLHttpRequest();
+
+    request.open('GET','http://localhost:8080/Libreria/webresources/book/all');
+    request.send();
+    request.onload = () => {
+        if (request.status == 200){
+            console.log(request.status)
+            if(callback) callback(request)
+        }
+    }
 }

@@ -1,7 +1,5 @@
 import {updateBook} from './apiCrud.js'
 
-
-
 const buttonEditarElement = document.getElementById('editar')
 buttonEditarElement.addEventListener('click', e =>{
     const libro = getLibro()
@@ -11,13 +9,15 @@ buttonEditarElement.addEventListener('click', e =>{
 function getLibro(){
     const inputElements = document.getElementsByTagName('input')
     let libro = '{'
+    let count = 0
     for(let input in inputElements){
         libro += `"${inputElements[input].id}": ${ !isNaN(parseInt(inputElements[input].value ))? inputElements[input].value : `"${inputElements[input].value}"`}`
-        libro+=','
+        count++
+        if (count==8) break
+        else libro+=','
     }
-    libro = libro.substring(0,libro.length-1)
     libro += '}'
-    console.log(libro)
+    console.log(JSON.parse(libro))
     return libro
 }
 

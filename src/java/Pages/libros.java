@@ -94,10 +94,8 @@ public class libros extends HttpServlet {
             Response rs = new BookResource().getBook(Integer.parseInt(id));
             String result = (String) rs.getEntity();
             result = result.replace("\"", "").replace("{", "").replace("}", "");
-            System.out.println(result);
             String[] bookAttributes = result.split(",");
             for(String attribute : bookAttributes){
-                System.out.println(attribute);
                 String[] arrAttribute = attribute.split(":");
                 String key = arrAttribute[0];
                 String value = arrAttribute[1];
