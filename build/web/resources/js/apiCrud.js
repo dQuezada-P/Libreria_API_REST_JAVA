@@ -22,7 +22,7 @@ export function deleteBook(e) {
     }
 }
 
-export function addBook(e, json, alertElement) {
+export function addBook(json, alertElement) {
 
     const request = new XMLHttpRequest();
     const alertContent = alertElement.querySelector('.alert-content')
