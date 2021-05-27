@@ -87,6 +87,29 @@ public class libros extends HttpServlet {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
+        try {
+            if (action == null) listarLibros(request, response);
+            switch (action) {
+                case "buscar":
+                    buscarLibro(request,response);
+                    break;
+            }
+        } catch (Exception e) {
+        }
+    }
     
     private Map validarId(String id){
         try{
@@ -127,29 +150,6 @@ public class libros extends HttpServlet {
     private void editarLibro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/libros/editarLibro.jsp");
         dispatcher.forward(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String action = request.getParameter("action");
-        try {
-            if (action == null) listarLibros(request, response);
-            switch (action) {
-                case "buscar":
-                    buscarLibro(request,response);
-                    break;
-            }
-        } catch (Exception e) {
-        }
     }
     
 

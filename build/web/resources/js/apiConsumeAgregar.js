@@ -17,6 +17,7 @@ buttonAgregarElement.addEventListener('click', e => {
 
 function getLibro(){
     const inputElements = document.getElementsByTagName('input')
+    
     let libro = '{'
     let count = 0
     for(let input in inputElements){

@@ -4,13 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/src/java/Pages/libros.java</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/web/WEB-INF/beans.xml</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/src/java/Dao/LibroDao.java</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/web/WEB-INF/web.xml</file>
             <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/src/java/API/BookResource.java</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/web/META-INF/context.xml</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/src/conf/MANIFEST.MF</file>
-            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/src/java/Dao/Dao.java</file>
+            <file>file:/D:/Escritorio/Barra%20de%20Tareas/Projects/Java%20Api%20Rest/Libreria_API_REST_JAVA/web/views/libros/editarLibro.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -11,7 +11,6 @@ function requestJson(e) {
     getBooks(request => {
         if(e.type == 'load'){
             fillTable(request) 
-            return
         }
         fillJson(request)
     })
@@ -43,8 +42,7 @@ function fillTable(request){
         buttonTrashElement.type = 'submit'
         buttonTrashElement.setAttribute('id',libro.id)
         buttonTrashElement.addEventListener('click', e => {
-            deleteBook(e)
-            requestJson(e) 
+            deleteBook(e,() => requestJson(e))
         })
 
         const trashIconElement = document.createElement('i')
@@ -57,8 +55,6 @@ function fillTable(request){
 
         tableElement.appendChild(row)
     })
-    
-    fillJson(request)
 }
 
 function fillJson(request) {

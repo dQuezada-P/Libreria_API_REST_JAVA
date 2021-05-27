@@ -1,4 +1,4 @@
-export function deleteBook(e) {
+export function deleteBook(e, callback) {
     let element = e.target
     if (element.nodeName == 'I') element = element.parentElement
 
@@ -15,6 +15,7 @@ export function deleteBook(e) {
             console.log(request.status)
             const tr = element.parentElement.parentElement
             tr.parentElement.removeChild(tr)
+            if(callback) callback()
             console.table(rs)
         } else {
             console.error(rs)
