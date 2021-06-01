@@ -1,4 +1,5 @@
 import { addBook } from './apiCrud.js'
+import { showAlert } from './alerts.js'
 
 const buttonAgregarElement = document.getElementById('agregar')
 const alertElement = document.querySelector('.alert')
@@ -7,12 +8,13 @@ buttonAgregarElement.addEventListener('click', e => {
 
     alertElement.setAttribute('hidden', 'true')
 
-    const inputElements = e.target.parentElement.getElementsByClassName('form-control')
-
     const libro = getLibro()
-    console.log(libro)
+    console.log(alertElement)
 
-    addBook(libro, alertElement)
+    addBook(libro, request =>{
+        showAlert(request.status,'añadido',alertElement)
+        
+    })
 })
 
 function getLibro(){

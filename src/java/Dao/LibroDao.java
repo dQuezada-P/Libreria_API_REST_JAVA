@@ -48,7 +48,6 @@ public class LibroDao {
             ps.setInt(7, libro.getPrecio());
 
             int rs = ps.executeUpdate();
-            System.out.println(rs);
 
             conn.close();
 

@@ -8,7 +8,6 @@ package API;
 import Class.Libro;
 import Dao.LibroDao;
 import com.google.gson.Gson;
-import com.sun.management.jmx.ServiceName;
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -101,7 +100,6 @@ public class BookResource {
         try{
             LibroDao dao = new LibroDao();
             int resultado = dao.deleteBook(id);
-            System.out.println(resultado);
             if(resultado == 0)return Response.status(Response.Status.NOT_FOUND).entity("El libro a eliminar no existe").build();
             String json = "{\"id\":"+id+"}";
             return Response.ok(json, MediaType.APPLICATION_JSON).build(); 

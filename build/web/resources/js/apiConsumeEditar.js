@@ -1,9 +1,16 @@
 import {updateBook} from './apiCrud.js'
+import {showAlert} from './alerts.js'
+
+const alertElement = document.querySelector('.alert')
 
 const buttonEditarElement = document.getElementById('editar')
 buttonEditarElement.addEventListener('click', e =>{
+    alertElement.setAttribute('hidden', 'true')
     const libro = getLibro()
-    updateBook(libro)
+    updateBook(libro, request =>{
+        showAlert(request.status,'modificado',alertElement)
+        
+    })
 })
 
 function getLibro(){

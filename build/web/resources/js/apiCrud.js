@@ -5,8 +5,6 @@ export function deleteBook(e, callback) {
     const idLibro = element.getAttribute('id')
     const request = new XMLHttpRequest();
 
-
-
     request.open('DELETE', `http://localhost:8080/Libreria/webresources/book/${idLibro}`);
     request.send();
     request.onload = () => {
@@ -23,42 +21,26 @@ export function deleteBook(e, callback) {
     }
 }
 
-export function addBook(json, alertElement) {
+export function addBook(json, callback) {
 
     const request = new XMLHttpRequest();
-    const alertContent = alertElement.querySelector('.alert-content')
 
     request.open('POST', `http://localhost:8080/Libreria/webresources/book`);
     request.setRequestHeader('content-Type', 'application/json');
     request.send(json)
     request.onload = () => {
-        if (request.status == "200") {
-            if (alertElement.className == 'alert alert-danger') {
-                alertElement.classList.remove('alert-danger')
-                alertElement.classList.add('alert-success')
-            }
-            alertContent.textContent = 'Se ha agregado el libro con exito!'
-        } else {
-            if (alertElement.className == 'alert alert-success') {
-                alertElement.classList.remove('alert-success')
-                alertElement.classList.add('alert-danger')
-            }
-            alertContent.textContent = 'No se ha podido agregar el libro'
-        }
-
-        alertElement.removeAttribute('hidden')
+        if (callback) callback(request)
     }
 }
 
-export function updateBook(libro){
+export function updateBook(libro,callback){
     const request = new XMLHttpRequest();
 
     request.open('PUT','http://localhost:8080/Libreria/webresources/book')
     request.setRequestHeader('content-Type', 'application/json');
     request.send(libro)
     request.onload = () => {
-        if (request.status == "200") console.log(request.status) 
-        else console.log(request.status)
+        if (callback) callback(request)
     }
 }
 
